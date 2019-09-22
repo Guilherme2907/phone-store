@@ -2,6 +2,7 @@ import React, { Component } from "react";
 // import { ProductConsumer } from "./context";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import PropTypes from 'prop-types';
 
 export default class Product extends Component {
   render() {
@@ -15,7 +16,7 @@ export default class Product extends Component {
                 src={img}
                 alt="product"
                 className="card-img-top"
-                onClick={() => alert("Hello")}
+                // onClick={}
               />
             </Link>
 
@@ -42,6 +43,16 @@ export default class Product extends Component {
       </ProductWrapper>
     );
   }
+}
+
+Product.propTypes = {
+  product: PropTypes.shape({
+    id: PropTypes.number,
+    img:PropTypes.string,
+    title:PropTypes.string,
+    price:PropTypes.number,
+    inCart:PropTypes.bool
+  })
 }
 
 const ProductWrapper = styled.div`
@@ -87,6 +98,10 @@ const ProductWrapper = styled.div`
         border-radius: .5rem 0 0 0;
         transform: translate(100%,100%);
         transition: all 0.5s linear;
+        &:hover {
+          color: var(--mainBlue);
+          cursor:pointer;         
+        }
     }
 
     &:hover .cart-btn {
