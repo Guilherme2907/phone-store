@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import { storeProducts } from "../data";
+import { storeProducts,detailProduct } from "../data";
 
 const ProductContext = React.createContext();
 //Provider
@@ -9,10 +9,10 @@ const ProductContext = React.createContext();
 class ProductProvider extends Component {
   state = {
     products: [],
-    detailProduct: {},
+    detailProduct,
     cart: [],
-    modalOpen: true,
-    modalProduct: {}
+    modalOpen: false,
+    modalProduct: detailProduct
   };
 
   componentDidMount() {
@@ -74,7 +74,7 @@ class ProductProvider extends Component {
           handleDetail: this.handleDetail,
           handleAddToCart: this.handleAddToCart,
           openModal: this.openModal,
-          closeModal: this.closeModal
+          closeModal: this.closeModal,
         }}
       >
         {this.props.children}
