@@ -62,7 +62,7 @@ export default class Details extends Component {
                       cart
                       disabled={inCart}
                       onClick={() => {
-                        value.handleAddToCart(id);
+                        value.addToCart(id);
                         value.openModal(id);
                       }}
                     >
